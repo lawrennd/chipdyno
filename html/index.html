@@ -1,0 +1,50 @@
+<html>
+
+<head>
+<title>Probabilistic Dynamical Model for Inference of the Regulatory Mechanism of Transcription - MATLAB Code</title>
+</head>
+
+<body>
+
+<h1>Dynamical Model for Transcription</h1>
+
+This page describes examples of how to use the Dynamical Model for Transcription detailed in <a href=""></a>. The code is available for <a href="http://ext.dcs.shef.ac.uk/~u0015/cgi-bin/downloadForm.cgi?toolbox=chipdyno">download here</a>. 
+
+
+<h3>Release Information</h3>
+
+<p>Current release is 0.1.
+
+<p>Release 0.1 is the first release associated with the paper, containing scripts for recreating the results given.
+
+<p>The toolboxes required to run the code are listed below.</p>
+
+
+<table>
+  <tr>
+    <td width="65%"><b>Toolbox</b></td>
+    <td width="35%"><b>Version</b></td>
+  </tr>
+  <tr>
+    <td width="65%">
+
+<a href="http://www.dcs.shef.ac.uk/~neil/ndlutil/downloadFiles">NDLUTIL</a><br>
+
+    </td>
+    <td width="35%">
+
+0.15<br>
+
+    </td>
+  </tr>
+</table>
+
+
+<p>Finally you will also need the <a href="http://www.ncrg.aston.ac.uk/netlab/">NETLAB toolbox</a> in your path.
+
+<h2>Results in the Paper</h2>
+
+The main scripts are <code>demTu</code> and <code>demSpellman</code> which run the code on the metabolic and cell cycle data sets. The function <code>chipdynoTransFact</code> computes the posterior, gene specific, transcription factor activities for a given transcription factor. The function <code>chipdynoTransFactNoise</code> does the same thing for expression levels with associated noise (such as computed by mmgMOS). The function <code>chipdynoGeneAct</code> sorts the transcription factor activities for a particular gene. The function <code>chipdynoTransFactCorrel</code> normalises the correlations and presents the most correlated TFs.
+
+</body>
+</html>
