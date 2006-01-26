@@ -1,9 +1,11 @@
 function [tf,tfErrors]=chipDynoExpectationsFast(data,X,Sigma,beta,gamma,mu, ...
                                          transNames, annotations, ...
                                          transName,geneName);
-%CHIPDYNOEXPECTATIONS computes posterior expectations of TFA.
 
-%CHIPDYNO
+% CHIPDYNOEXPECTATIONS computes posterior expectations of TFA.
+
+% CHIPDYNO
+
 npts=size(data,2);
 nTrans=size(X,2);
 

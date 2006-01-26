@@ -1,8 +1,8 @@
 function expectations=chipDynoStatPostEst(data,x,Sigma,beta,gamma,mu);
-%CHIPDYNOPOSTEST computes posterior expectations 
 
-%CHIPDYNO
+% CHIPDYNOPOSTEST computes posterior expectations 
 
+% CHIPDYNO
 
 npts=size(data,2);
 nTrans=size(x,1);

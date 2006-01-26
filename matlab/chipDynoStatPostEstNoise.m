@@ -1,7 +1,8 @@
 function expectations=chipDynoStatPostEstNoise(data,x,Sigma,beta,precs,gamma,mu);
-%CHIPDYNOPOSTEST computes posterior expectations.
 
-%CHIPDYNO
+% CHIPDYNOPOSTEST computes posterior expectations.
+
+% CHIPDYNO
 
 
 npts=size(data,2);

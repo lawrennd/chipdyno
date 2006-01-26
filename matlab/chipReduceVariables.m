@@ -1,8 +1,9 @@
 function [R,C,V,nEffectGenes]=chipReduceVariables(X);
 
-%CHIPREDUCEVARIABLES reduce  number of variables in chipDyno model
+% CHIPREDUCEVARIABLES reduce  number of variables in chipDyno model
 
-%CHIPDYNO
+% CHIPDYNO
+
 nGenes=size(X,1);
 preSigma1=X(1,:);
 preSigma2=preSigma1;

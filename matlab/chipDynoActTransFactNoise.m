@@ -1,8 +1,10 @@
 function list=chipDynoActTransFactNoise(data,X,Sigma,beta,precs,gamma,mu, ...
                                          TransNames, annotation);
-%CHIPDYNOACTTRANSFACT identifies significantly varying TFs.
 
-%CHIPDYNO
+% CHIPDYNOACTTRANSFACT identifies significantly varying TFs.
+
+% CHIPDYNO
+
 nTrans=size(TransNames,1);
 list=[];
 for i=1:nTrans

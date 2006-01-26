@@ -2,9 +2,9 @@ function [list,maxActivity,maxActivityError]=chipDynoGeneActNoise(data, ...
                                                   X,Sigma,beta,precs,gamma,mu, ...
                                                   TransNames, ...
                                                   annotation,geneName);
-%CHIPDYNOGENEACT given a gene, lists activators in decreasing order
+% CHIPDYNOGENEACT given a gene, lists activators in decreasing order
 
-%CHIPDYNO
+% CHIPDYNO
 
 I=find(strcmp(geneName,annotation));
 activeNames=TransNames(find(X(I,:)));

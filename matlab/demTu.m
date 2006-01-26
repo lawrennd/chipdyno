@@ -1,9 +1,9 @@
-%DEMTU demonstrates dynamical chipCHIP on Tu data.
+% DEMTU demonstrates dynamical chipCHIP on Tu data.
 
-%CHIPDYNO
+% CHIPDYNO
+
 clear all
 [data,vars,X,annotation,TransNames]=chipDynoTuLoadData();
-vars(find(vars<1e-6))=1e-6;
 nGenes=size(data,1);
 npts=size(data,2);
 nTrans=size(X,2);
@@ -27,4 +27,4 @@ Sigma=preSigma'*preSigma+diag(diagonal.*diagonal);
 beta=params(1);
 gamma=params(2);
 mu=params(3:2+nTrans);
-save results/ResultsTu1 params
+save results/ResultsTu params

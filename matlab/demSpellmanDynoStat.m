@@ -1,6 +1,7 @@
-%DEMSPELLMAN demonstrates dynamical chipCHIP on Spellman data.
+% DEMSPELLMAN demonstrates dynamical chipCHIP on Spellman data.
 
-%CHIPDYNO
+% CHIPDYNO
+
 clear all
 [data,X,annotation,TransNames]=chipDynoLoadData();
 nGenes=size(data,1);

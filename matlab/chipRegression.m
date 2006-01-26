@@ -1,8 +1,11 @@
-%CHIPREGRESSION calculates TFAs by simple regression for comparison
-[probeName, data] = chipTextRead('../../data/SpellmanMicro.txt');
-[probeName2, annotation, dataChip] = chipChipTextRead(['../../data/' ...
-                    'Yeast_Connectivity.txt'], '../../data/Connectivity_Matrix.txt');
-TransNames=textread('../../data/Trans_Names.txt','%q', ...
+% CHIPREGRESSION calculates TFAs by simple regression for comparison
+
+% CHIPDYNO
+
+[probeName, data] = chipTextRead('SpellmanMicro.txt');
+[probeName2, annotation, dataChip] = chipChipTextRead( ...
+    'Yeast_Connectivity.txt', 'Connectivity_Matrix.txt');
+TransNames=textread('Trans_Names.txt','%q', ...
                     'headerlines',1,'whitespace','','delimiter','\t');
 TransNames=TransNames(4:end-2);
 index=zeros(size(dataChip,1),1);

@@ -1,11 +1,13 @@
 function [data,X,annotation,TransNames]=chipDynoLoadData();
-%CHIPDYNOLOADDATA loads Spellman Data with Lee et al ChIP data.
 
-%CHIPDYNO
-[probeName, data] = chipTextRead('../../data/SpellmanMicro.txt');
-[probeName2, annotation, dataChip] = chipChipTextRead(['../../data/' ...
-                    'Yeast_Connectivity.txt'], '../../data/Connectivity_Matrix.txt');
-TransNames=textread('../../data/Trans_Names.txt','%q', ...
+% CHIPDYNOLOADDATA loads Spellman Data with Lee et al ChIP data.
+
+% CHIPDYNO
+
+[probeName, data] = chipTextRead('SpellmanMicro.txt');
+[probeName2, annotation, dataChip] = chipChipTextRead(...
+    'Yeast_Connectivity.txt', 'Connectivity_Matrix.txt');
+TransNames=textread('Trans_Names.txt','%q', ...
                     'headerlines',1,'whitespace','','delimiter','\t');
 TransNames=TransNames(4:end-2);
 index=zeros(size(dataChip,1),1);
