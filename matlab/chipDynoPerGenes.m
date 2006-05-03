@@ -1,10 +1,11 @@
 function list=chipDynoPerGenes(anno)
 
-% CHIPDYNOPERGENES genes periodic according to Tu et al
+%CHIPDYNOPERGENES genes periodic according to Tu et al
 
-% CHIPDYNO
+%CHIPDYNO
 
-TuPerGenes=textread('PerGenes.txt', '%q');
+TuPerGenes=textread('./data/MetabolData/PerGenes.txt', ...
+                     '%q');
 index=[];
 for i=1:size(anno,1)
   index=[index,size(find(strcmp(anno(i),TuPerGenes)),1)];

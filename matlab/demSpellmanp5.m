@@ -3,7 +3,8 @@
 %CHIPDYNO
 clear all
 randn('seed',39)
-[data,X,annotation,TransNames]=chipDynoLoadData();
+[data,X,probeNames,annotation,TransNames]=chipDynoLoadDatap2();
+[data,X,probeNames,annotation,TransNames]=chipDynoLoadDatap2p5(TransNames,probeNames);
 nGenes=size(data,1);
 npts=size(data,2);
 nTrans=size(X,2);
@@ -27,4 +28,4 @@ Sigma=preSigma'*preSigma+diag(diagonal.*diagonal);
 beta=params(1);
 gamma=params(2);
 mu=params(3:2+nTrans);
-save ResultsSpellmanNewInit params
+save ResultsSpellmanp5 params

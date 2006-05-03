@@ -1,11 +1,12 @@
 function list=chipDynoNewTransFactNoise(data,X,Sigma,beta,precs,gamma,mu, ...
                                          TransNames, annotation);
-% CHIPDYNONEWTRANSFACTNOISE tfs active for us and not for Tu et al.
+%CHIPDYNONEWTRANSFACTNOISE tfs active for us and not for Tu et al.
 
-% CHIPDYNO
+%CHIPDYNO
 
-TuTransFact=textread('PerTransFact.txt', '%q');
-list1=chipDynoActTransFactNoise(data,X,Sigma,beta,precs,gamma,mu, ...
+TuTransFact=textread('./data/MetabolData/PerTransFact.txt', ...
+                     '%q');
+[list1,newX,newXVals]=chipDynoActTransFactNoise(data,X,Sigma,beta,precs,gamma,mu, ...
                                          TransNames, annotation);
 list2=TransNames(find(list1>4));
 index=[];

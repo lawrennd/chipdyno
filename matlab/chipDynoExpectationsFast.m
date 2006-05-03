@@ -1,11 +1,9 @@
-function [tf,tfErrors]=chipDynoExpectationsFast(data,X,Sigma,beta,gamma,mu, ...
+function [tf,tfErrors,tfErrorsDiffs]=chipDynoExpectationsFast(data,X,Sigma,beta,gamma,mu, ...
                                          transNames, annotations, ...
                                          transName,geneName);
+%CHIPDYNOEXPECTATIONS computes posterior expectations of TFA.
 
-% CHIPDYNOEXPECTATIONS computes posterior expectations of TFA.
-
-% CHIPDYNO
-
+%CHIPDYNO
 npts=size(data,2);
 nTrans=size(X,2);
 
@@ -25,4 +23,6 @@ if x(index)==0
   error('The gene selected is not a target of the transcription factor \n')
 end
 tf=expectations.b(:,index);
-tfErrors=sqrt(expectations.bTb(:,index));
+ind=find(strcmp(transName,transNames(find(x))));
+tfErrors=expectations.tfError(:,ind);
+tfErrorsDiffs=[expectations.tfErrorDiffs(:,:,ind)];

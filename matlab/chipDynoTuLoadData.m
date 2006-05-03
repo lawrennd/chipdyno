@@ -1,24 +1,33 @@
 function [data,vars,X,annotation,TransNames]=chipDynoTuLoadData();
+%CHIPDYNOTULOADDATA loads Tu Data with Lee et al ChIP data.
 
-% CHIPDYNOTULOADDATA loads Tu Data with Lee et al ChIP data.
-
-% CHIPDYNO
-
+%CHIPDYNO
 [probeName, data, vars] = chipTuTextRead;
 data=data(find(sum(vars,2)),:);
 probeName=probeName(find(sum(vars,2)));
 vars=vars(find(sum(vars,2)),:);
-dataChip=load('Connectivity2.txt');
-[probeName2, annota] = textread('annotations2.txt','%q%q');
-TransNames=textread('Trans_Names2.txt','%q');
-
+dataChip=load('./data/Connectivity2.txt');
+[probeName2, annota] = textread('./data/annotations2.txt','%q%q');
+TransNames=textread('./data/Trans_Names2.txt','%q');
+%TransNames=TransNames(2:end);
+redundancy=ones(size(probeName));
 index=zeros(size(dataChip,1),1);
 for i=1:size(dataChip,1)
-  index(i)=sum(strcmp(probeName2(i),probeName));   
+   vec=strcmp(probeName2(i),probeName);
+   index(i)=sum(vec);
+   if index(i)>1
+     pippo=find(vec);
+     redundancy(pippo(2:end))=0;
+   end
+   
+   
 end
 dataChip=dataChip(find(index),:);
 annota=annota(find(index));
 probeName2=probeName2(find(index));
+probeName=probeName(find(redundancy));
+data=data(find(redundancy),:);
+vars=vars(find(redundancy),:);
 index=zeros(size(data,1),1);
 preX=[];
 annotation=[];

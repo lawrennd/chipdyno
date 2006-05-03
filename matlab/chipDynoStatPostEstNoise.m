@@ -1,8 +1,7 @@
 function expectations=chipDynoStatPostEstNoise(data,x,Sigma,beta,precs,gamma,mu);
+%CHIPDYNOPOSTEST computes posterior expectations.
 
-% CHIPDYNOPOSTEST computes posterior expectations.
-
-% CHIPDYNO
+%CHIPDYNO
 
 
 npts=size(data,2);
@@ -30,13 +29,25 @@ end
 
        
 expectations.b=Mean;
-expectations.bTb=[];
-for i=1:npts
-  expectations.bTb=[expectations.bTb;invC.Sigma(i,i)*diag(Sigma)'+ ...
-                    invC.YYT(i,i)*Y'.*Y'];
+gigio=find(x);
+expectations.tfError=zeros(npts,sum(x));
+expectations.tfErrorDiffs=zeros(npts,npts, sum(x));
+preDiffs=zeros(npts,npts);
+for i=1:sum(x)
+    postCov=invC.Sigma*Sigma(gigio(i),gigio(i))+invC.YYT* ...
+            Y(gigio(i))^2;
+    %[var,u,lambda]=ppca(postCov,1);
+    auxMat=postCov-(ones(1,npts)*postCov*ones(npts,1))* ...
+                                        ones(npts,npts)/npts^2;
+    expectations.tfError(:,i)=sqrt(diag(postCov));
+    for j=1:npts-1
+        for l=j+1:npts
+           preDiffs(j,l)=sqrt((auxMat(j,j)+auxMat(l, ...
+                                                          l)-2* ...
+                                           auxMat(j,l))/2);
+        end
+    end
+    expectations.tfErrorDiffs(:,:,i)=preDiffs+preDiffs'+eye(npts);
 end
-
-
-  
      
      
