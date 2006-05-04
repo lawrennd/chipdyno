@@ -1,6 +1,7 @@
 # These are files that should be packaged for the CHIPDYNO software
 dir: html
 ~/mlprojects/chipdyno/html/index.html
+~/mlprojects/chipdyno/html/supplement.pdf
 dir: data
 ~/mlprojects/chipdyno/matlab/data/annotations2.txt
 ~/mlprojects/chipdyno/matlab/data/Connectivity_Matrix.txt
