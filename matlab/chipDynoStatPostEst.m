@@ -1,5 +1,6 @@
 function expectations=chipDynoStatPostEst(data,x,Sigma,beta,gamma,mu);
-%CHIPDYNOPOSTEST computes posterior expectations 
+
+% CHIPDYNOSTATPOSTEST computes posterior expectations 
 
 %CHIPDYNO
 

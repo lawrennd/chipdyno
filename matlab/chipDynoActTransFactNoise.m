@@ -1,8 +1,8 @@
 function [list,newX, newXVals]=chipDynoActTransFactNoise(data,X,Sigma,beta,precs,gamma,mu, ...
                                          TransNames, annotation);
-%CHIPDYNOACTTRANSFACT identifies significantly varying TFs.
+% CHIPDYNOACTTRANSFACTNOISE identifies significantly varying TFs.
 
-%CHIPDYNO
+% CHIPDYNO
 nTrans=size(TransNames,1);
 list=[];
 newX=zeros(size(X));

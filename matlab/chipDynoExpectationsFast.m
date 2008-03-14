@@ -4,6 +4,7 @@ function [tf,tfErrors,tfErrorsDiffs]=chipDynoExpectationsFast(data,X,Sigma,beta,
 % CHIPDYNOEXPECTATIONSFAST computes posterior expectations of TFA.
 
 % CHIPDYNO
+
 npts=size(data,2);
 nTrans=size(X,2);
 

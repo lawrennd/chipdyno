@@ -1,9 +1,9 @@
 function list=chipDynoMultRegs(lista,data,X,Sigma,beta,precs,gamma, ...
                               mu,TransNames,annotation);
 
-%CHIPDYNOMULTREG finds genes that have multiple regulators
+% CHIPDYNOMULTREGS finds genes that have multiple regulators
 
-%CHIPDYNO
+% CHIPDYNO
 list=[];
 for i=1:size(lista,1)
   [TF,TFError]=chipDynoTransFactNoise(data,X,Sigma,beta,precs,gamma,mu, ...

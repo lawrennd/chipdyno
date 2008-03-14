@@ -1,7 +1,9 @@
 function f=chipStatMatrixInverter(Sigma, gamma, beta, x, npts);
-%CHIPMATRIXINVERTER inverts block tridiagonal matrices for chipChip
 
-%CHIPDYNO
+% CHIPSTATMATRIXINVERTER inverts block tridiagonal matrices for chipChip
+
+% CHIPDYNO
+  
 lambda=x'*Sigma*x;
 nTrans=size(x,1);
 Y=Sigma*x;
