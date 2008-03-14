@@ -1,11 +1,17 @@
-function [data,X,annotation,TransNames]=chipDynoLoadData();
-%CHIPDYNOLOADDATA loads Spellman Data with Lee et al ChIP data.
+function [data,X,probeNames,annotation,TransNames]=chipDynoLoadDatap1();
 
-%CHIPDYNO
-[probeName, data] = chipTextRead('./data/SpellmanMicro.txt');
-[probeName2, annotation, dataChip] = chipChipTextRead(['./data/' ...
-                    'Yeast_Connectivity.txt'], './data/Connectivity_Matrix.txt');
-TransNames=textread('./data/Trans_Names.txt','%q', ...
+% CHIPVARLOADDATAP1 loads Spellman Data with Lee et al ChIP data.
+
+% CHIPVAR
+[probeName, data] = chipTextRead(['../../data/' ...
+                    'SpellmanMicro.txt']);
+[row,col,how]=find(data==0);
+fakeData=sparse(row,col,how,size(data,1),size(data,2));
+data=data(find(sum(fakeData,2)<5),:);
+probeName=probeName(find(sum(fakeData,2)<5));
+[probeName2, annotation, dataChip] = chipChipTextRead(['../../data/' ...
+                    'Yeast_Connectivity.txt'], '../../data/Connectivity_Matrix.txt');
+TransNames=textread('../../data/Trans_Names.txt','%q', ...
                     'headerlines',1,'whitespace','','delimiter','\t');
 TransNames=TransNames(4:end-2);
 index=zeros(size(dataChip,1),1);
@@ -23,6 +29,8 @@ probeName=probeName(find(index));
 X=zeros(size(dataChip,1),size(dataChip,2));
 I=find(dataChip<1e-3);
 X(I)=1;
+%X=X(:,7:25);
+
 
 fakeX=sum(X,2);
 X=X(find(fakeX),:);
@@ -31,3 +39,4 @@ effectX=sum(X,1);
 TransNames=TransNames(find(effectX));
 X=X(:,find(effectX));
 data=data(find(fakeX),:);
+probeNames=probeName(find(fakeX));
