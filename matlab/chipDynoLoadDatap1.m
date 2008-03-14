@@ -1,8 +1,8 @@
 function [data,X,probeNames,annotation,TransNames]=chipDynoLoadDatap1();
 
-% CHIPVARLOADDATAP1 loads Spellman Data with Lee et al ChIP data.
+% CHIPDYNOLOADDATAP1 loads Spellman Data with Lee et al ChIP data.
 
-% CHIPVAR
+% CHIPDYNO
 [probeName, data] = chipTextRead(['./data/' ...
                     'SpellmanMicro.txt']);
 [row,col,how]=find(data==0);
