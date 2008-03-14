@@ -1,6 +1,6 @@
-%DEMSPELLMAN demonstrates dynamical chipCHIP on Spellman data.
+% DEMSPELLMANP1 demonstrates dynamical chipCHIP on Spellman data.
 
-%CHIPDYNO
+% CHIPDYNO
 clear all
 randn('seed',39)
 [data,X,probeNames,annotation,TransNames]=chipDynoLoadDatap1();
