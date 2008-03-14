@@ -3,15 +3,15 @@ function [data,X,probeNames,annotation,TransNames]=chipDynoLoadDatap2p5(TransNam
 % CHIPVARLOADDATAP2P5 loads Spellman Data with Lee et al ChIP data.
 
 % CHIPVAR
-[probeName, data] = chipTextRead(['../../data/' ...
+[probeName, data] = chipTextRead(['./data/' ...
                     'SpellmanMicro.txt']);
 [row,col,how]=find(data==0);
 fakeData=sparse(row,col,how,size(data,1),size(data,2));
 data=data(find(sum(fakeData,2)<5),:);
 probeName=probeName(find(sum(fakeData,2)<5));
-[probeName2, annotation, dataChip] = chipChipTextRead(['../../data/' ...
-                    'Yeast_Connectivity.txt'], '../../data/Connectivity_Matrix.txt');
-TransNames=textread('../../data/Trans_Names.txt','%q', ...
+[probeName2, annotation, dataChip] = chipChipTextRead(['./data/' ...
+                    'Yeast_Connectivity.txt'], './data/Connectivity_Matrix.txt');
+TransNames=textread('./data/Trans_Names.txt','%q', ...
                     'headerlines',1,'whitespace','','delimiter','\t');
 TransNames=TransNames(4:end-2);
 index=zeros(size(dataChip,1),1);
