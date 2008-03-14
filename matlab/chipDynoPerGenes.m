@@ -1,8 +1,8 @@
 function list=chipDynoPerGenes(anno)
 
-%CHIPDYNOPERGENES genes periodic according to Tu et al
+% CHIPDYNOPERGENES genes periodic according to Tu et al
 
-%CHIPDYNO
+% CHIPDYNO
 
 TuPerGenes=textread('./data/MetabolData/PerGenes.txt', ...
                      '%q');

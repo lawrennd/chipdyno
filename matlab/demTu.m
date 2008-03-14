@@ -1,6 +1,7 @@
-%DEMTU demonstrates dynamical chipCHIP on Tu data.
+% DEMTU demonstrates dynamical chipCHIP on Tu data.
 
-%CHIPDYNO
+% CHIPDYNO
+
 clear all
 [data,vars,X,annotation,TransNames]=chipDynoTuLoadData();
 nGenes=size(data,1);

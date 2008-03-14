@@ -1,7 +1,9 @@
 function f=chipDynoLikeStat(params,data,X,nEffectGenes,R,C);
-%CHIPDYNOLIKESTAT marginal likelihood for chipChip dynamical model
 
-%CHIPDYNO
+% CHIPDYNOLIKESTAT marginal likelihood for chipChip dynamical model
+
+% CHIPDYNO
+
 nGenes=size(data,1);
 nTrans=size(X,2);
 npts=size(data,2);

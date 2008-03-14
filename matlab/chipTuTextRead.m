@@ -1,7 +1,8 @@
 function [ORF, data, vars]=chipTuTextRead()
-%CHIPTUTEXTREAD assigns common names to probe IDs
 
-%CHIPDYNO
+% CHIPTUTEXTREAD assigns common names to probe IDs
+
+% CHIPDYNO
 
 [IDs,crap,ORF,geneCN]=textread('./data/MetabolData/dictionary.txt','%q%q%q%q');
 IDSnew=textread('./data/MetabolData/probeIDTu.txt','%q');

@@ -2,9 +2,9 @@ function [list,maxActivity,maxActivityError]=chipDynoGeneAct(data, ...
                                                   X,Sigma,beta,gamma,mu, ...
                                                   transNames, ...
                                                   annotation,geneName);
-%CHIPDYNOGENEACT given a gene, lists activators in decreasing order
+% CHIPDYNOGENEACT given a gene, lists activators in decreasing order
 
-%CHIPDYNO
+% CHIPDYNO
 
 I=find(strcmp(geneName,annotation));
 activeNames=transNames(find(X(I,:)));

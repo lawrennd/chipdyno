@@ -1,7 +1,9 @@
 function f=chipDynoLikeStatGrad(params,data,X,nEffectGenes,R,C);
-%CHIPDYNOLIKESTATGRAD gradient of CHIPDYNOLIKESTAT.
 
-%CHIPDYNO
+% CHIPDYNOLIKESTATGRAD gradient of CHIPDYNOLIKESTAT.
+
+% CHIPDYNO
+
 nGenes=size(data,1);
 nTrans=size(X,2);
 npts=size(data,2);

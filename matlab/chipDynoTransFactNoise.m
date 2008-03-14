@@ -1,9 +1,10 @@
 function [TF,TFError,TFErrorDiff]=chipDynoTransFactNoise(data,X,Sigma,beta,precs,gamma,mu, ...
                                          transNames, annotations, ...
                                         name);
-%CHIPDYNOTRANSFACTNOISE given a transcription factor, provides TFAs.
+% CHIPDYNOTRANSFACTNOISE given a transcription factor, provides TFAs.
 
-%CHIPDYNO
+% CHIPDYNO
+
 index=find(strcmp(name,transNames));
 genesIn=find(X(:,index));
 anno=annotations(find(X(:,index)));

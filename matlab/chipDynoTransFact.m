@@ -1,9 +1,10 @@
 function [TF,TFError,TFErrorDiff]=chipDynoTransFact(data,X,Sigma,beta,gamma,mu, ...
                                          transNames, annotations, ...
                                         name);
-%CHIPDYNOTRANSFACT provides gene-specific TFAs with errorbars.
+% CHIPDYNOTRANSFACT provides gene-specific TFAs with errorbars.
 
-%CHIPDYNO
+% CHIPDYNO
+
 index=find(strcmp(name,transNames));
 genesIn=find(X(:,index));
 anno=annotations(find(X(:,index)));

@@ -1,7 +1,9 @@
 function [data,vars,X,annotation,TransNames]=chipDynoTuLoadData();
-%CHIPDYNOTULOADDATA loads Tu Data with Lee et al ChIP data.
 
-%CHIPDYNO
+% CHIPDYNOTULOADDATA loads Tu Data with Lee et al ChIP data.
+
+% CHIPDYNO
+
 [probeName, data, vars] = chipTuTextRead;
 data=data(find(sum(vars,2)),:);
 probeName=probeName(find(sum(vars,2)));
