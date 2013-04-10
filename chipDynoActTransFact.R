@@ -5,7 +5,7 @@
 #%	Description:
 #%	[list,newX, newXVals]=chipDynoActTransFact(data,X,Sigma,beta,gamma,mu, ...
 #%                                         TransNames, annotation,sigLev);
-#%% 	chipDynoActTransFact.m version 0.1.0
+#%% 	chipDynoActTransFact.R version 0.1.0
 
 chipDynoActTransFact=function (data,X,Sigma,beta,gamma,mu, TransNames, annotation, sigLev) {
 
