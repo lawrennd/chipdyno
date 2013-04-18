@@ -1,11 +1,11 @@
-# function f=chipDynoLikeStatNoiseGrad(params,data,precs,X,nEffectGenes,R,C);
+## function f=chipDynoLikeStatNoiseGrad(params,data,precs,X,nEffectGenes,R,C);
 
-# CHIPDYNOLIKESTATNOISEGRAD gradient of CHIPDYNOLIKESTATNOISE.
-#
-#	Description:
-#	f=chipDynoLikeStatNoiseGrad(params,data,precs,X,nEffectGenes,R,C);
-## 	rChipDynoLikeStatNoiseGrad.R version 0.01
-##	Written on 25.04.2012
+## CHIPDYNOLIKESTATNOISEGRAD gradient of CHIPDYNOLIKESTATNOISE.
+##
+##	Description:
+##	f=chipDynoLikeStatNoiseGrad(params,data,precs,X,nEffectGenes,R,C);
+### 	rChipDynoLikeStatNoiseGrad.R version 0.01
+###	Written on 25.04.2012
 
 
 chipDynoLikeStatGrad = function(params, data, X, nEffectGenes, R, C) {
