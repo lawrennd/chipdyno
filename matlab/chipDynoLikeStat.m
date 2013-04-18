@@ -1,11 +1,23 @@
-function f=chipDynoLikeStat(params,data,X,nEffectGenes,R,C);
+function likelihood=chipDynoLikeStat(params,data,X,nEffectGenes,R,C);
 
 % CHIPDYNOLIKESTAT marginal likelihood for chipChip dynamical model
-%
-%	Description:
-%	f=chipDynoLikeStat(params,data,X,nEffectGenes,R,C);
-%% 	chipDynoLikeStat.m version 1.4
-
+% CHIPDYNO toolbox
+% chipDynoLikeStat.m version 1.4
+% FORMAT likelihood=chipDynoLikeStat(params,data,X,nEffectGenes,R,C);
+% DESC compute the marginal likelihood for chipChip dynamical model
+% ARG params: concatenated vector of multiple parameters(beta, gamma, 
+% initial mean of the transcription factors, and 
+% a vector to create diagonal matrix used to reduce the sparsity of covariance)
+% ARG data : point estimate of the expression level
+% ARG X : connectivity measurement between genes and transcription factors
+% ARG nEffectGenes : effectice gene name
+% ARG R, C : same length integer vectors specifying the row and column 
+% indices of the non-zero entries of the sparce matrix
+% RETURN likelihood : marginal likelihood
+% COPYRIGHT : Neil D. Lawrence, 2006
+% COPYRIGHT : Guido Sanguinetti, 2006
+% MODIFICATIONS : Muhammad A. Rahman, 2013
+% SEEALSO : chipDynoLikeStatNoise
 
 nGenes=size(data,1);
 nTrans=size(X,2);
@@ -41,4 +53,4 @@ for i=1:nGenes
   preLike(i)=preLike(i)+0.5*log(alpha(end)^-1+X(i,:)*Sigma*X(i,:)')+...
       0.5*((k(end)-number)^2)/(alpha(end)^-1+X(i,:)*Sigma*X(i,:)');
 end
-f=sum(preLike);
+likelihood=sum(preLike);

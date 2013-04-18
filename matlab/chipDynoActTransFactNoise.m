@@ -21,8 +21,8 @@ function [list,newX, newXVals]=chipDynoActTransFactNoise(data,X,Sigma,beta,precs
 % RETURN list: list of regulators for a specific gene
 % RETURN newX: 
 % RETURN newXVals : 
-% COPYRIGHT : Neil D. Lawrence, 2005
-% COPYRIGHT : Guido Sanguinetti, 2005
+% COPYRIGHT : Neil D. Lawrence, 2006
+% COPYRIGHT : Guido Sanguinetti, 2006
 % MODIFICATIONS : Muhammad A. Rahman, 2013
 % SEEALSO : chipDynoTransFact, chipDynoTransFactNoise, chipDynoActTransFact
 

@@ -20,10 +20,10 @@ function [tf,tfErrors,tfErrorsDiffs]=chipDynoExpectationsFast(data,X,Sigma,beta,
 % RETURN tf: gene specific transcription factor activity
 % RETURN tfErrors: error in gene specific transcription factor activity
 % RETURN tfErrorsDiffs : 
-% COPYRIGHT : Neil D. Lawrence, 2005
-% COPYRIGHT : Guido Sanguinetti, 2005
+% COPYRIGHT : Neil D. Lawrence, 2006
+% COPYRIGHT : Guido Sanguinetti, 2006
 % MODIFICATIONS : Muhammad A. Rahman, 2013
-% SEEALSO : chipDynoTransFact, chipDynoTransFactNoise, chipDynoActTransFact
+% SEEALSO : chipDynoExpectationsFastNoise
 
 
 npts=size(data,2);
