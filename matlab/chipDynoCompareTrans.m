@@ -1,11 +1,8 @@
 function [X,Y]=chipDynoCompareTrans(actTrans1,actTrans2)
 
 % CHIPDYNOCOMPARETRANS compares list of active tfs at different p
-%
-%	Description:
-%	[X,Y]=chipDynoCompareTrans(actTrans1,actTrans2)
-%% 	chipDynoCompareTrans.m version 1.1
 
+% CHIPDYNO
 X=[];
 for i=1:size(actTrans1,1)
   X=[X,sum((strcmp(actTrans1(i),actTrans2)))];

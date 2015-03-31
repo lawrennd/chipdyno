@@ -2,12 +2,8 @@ function list=chipDynoMultRegs(lista,data,X,Sigma,beta,precs,gamma, ...
                               mu,TransNames,annotation);
 
 % CHIPDYNOMULTREGS finds genes that have multiple regulators
-%
-%	Description:
-%	list=chipDynoMultRegs(lista,data,X,Sigma,beta,precs,gamma, ...
-%                              mu,TransNames,annotation);
-%% 	chipDynoMultRegs.m version 1.4
 
+% CHIPDYNO
 list=[];
 for i=1:size(lista,1)
   [TF,TFError]=chipDynoTransFactNoise(data,X,Sigma,beta,precs,gamma,mu, ...

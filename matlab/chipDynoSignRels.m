@@ -1,11 +1,8 @@
 function values=chipDynoSignRels(indicator, newX, data, X, Sigma, beta, gamma, mu, TransNames, annotation)
 
 % CHIPDYNOSIGNRELS finds the regulatory strength conserved rels
-%
-%	Description:
-%	values=chipDynoSignRels(indicator, newX, data, X, Sigma, beta, gamma, mu, TransNames, annotation)
-%% 	chipDynoSignRels.m version 1.2
 
+% CHIPDYNO
 [row, col]= find(newX);
 values=[];
 effectRow=row(find(indicator));

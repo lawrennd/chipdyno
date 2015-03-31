@@ -1,13 +1,8 @@
 function list=chipDynoNewTransFactNoise(data,X,Sigma,beta,precs,gamma,mu, ...
                                          TransNames, annotation);
-
 % CHIPDYNONEWTRANSFACTNOISE tfs active for us and not for Tu et al.
-%
-%	Description:
-%	list=chipDynoNewTransFactNoise(data,X,Sigma,beta,precs,gamma,mu, ...
-%                                         TransNames, annotation);
-%% 	chipDynoNewTransFactNoise.m version 1.4
 
+% CHIPDYNO
 
 TuTransFact=textread('./data/MetabolData/PerTransFact.txt', ...
                      '%q');

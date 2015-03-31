@@ -1,15 +1,9 @@
 function [TF,TFError,TFErrorDiff]=chipDynoTransFact(data,X,Sigma,beta,gamma,mu, ...
                                          transNames, annotations, ...
                                         name);
-
 % CHIPDYNOTRANSFACT provides gene-specific TFAs with errorbars.
-%
-%	Description:
-%	[TF,TFError,TFErrorDiff]=chipDynoTransFact(data,X,Sigma,beta,gamma,mu, ...
-%                                         transNames, annotations, ...
-%                                        name);
-%% 	chipDynoTransFact.m version 1.4
 
+% CHIPDYNO
 
 index=find(strcmp(name,transNames));
 genesIn=find(X(:,index));

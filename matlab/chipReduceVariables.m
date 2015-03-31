@@ -1,11 +1,8 @@
 function [R,C,V,nEffectGenes]=chipReduceVariables(X);
 
 % CHIPREDUCEVARIABLES reduce  number of variables in chipDyno model
-%
-%	Description:
-%	[R,C,V,nEffectGenes]=chipReduceVariables(X);
-%% 	chipReduceVariables.m version 1.4
 
+% CHIPDYNO
 
 nGenes=size(X,1);
 preSigma1=X(1,:);

@@ -1,11 +1,8 @@
 function expectations=chipDynoStatPostEst(data,x,Sigma,beta,gamma,mu);
 
-% CHIPDYNOSTATPOSTEST computes posterior expectations
-%
-%	Description:
-%	expectations=chipDynoStatPostEst(data,x,Sigma,beta,gamma,mu);
-%% 	chipDynoStatPostEst.m version 1.4
+% CHIPDYNOSTATPOSTEST computes posterior expectations 
 
+%CHIPDYNO
 
 
 npts=size(data,2);

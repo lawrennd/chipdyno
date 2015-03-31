@@ -1,9 +1,6 @@
-
 % DEMSPELLMANDYNOSTAT demonstrates dynamical chipCHIP on Spellman data.
-%
-%	Description:
-%	% 	demSpellmanDynoStat.m version 1.4
 
+% CHIPDYNO
 clear all
 randn('seed',39)
 [data,X,annotation,TransNames]=chipDynoLoadData();

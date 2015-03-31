@@ -1,11 +1,8 @@
 function [data,vars,X,annotation,TransNames]=chipDynoTuLoadData();
 
 % CHIPDYNOTULOADDATA loads Tu Data with Lee et al ChIP data.
-%
-%	Description:
-%	[data,vars,X,annotation,TransNames]=chipDynoTuLoadData();
-%% 	chipDynoTuLoadData.m version 1.5
 
+% CHIPDYNO
 
 [probeName, data, vars] = chipTuTextRead;
 data=data(find(sum(vars,2)),:);

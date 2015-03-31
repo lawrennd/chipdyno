@@ -1,11 +1,8 @@
 function f=chipDynoMaxDiff(TF,TFErrorDiff);
 
 % CHIPDYNOMAXDIFF computes most significant changes in TFAs
-%
-%	Description:
-%	f=chipDynoMaxDiff(TF,TFErrorDiff);
-%% 	chipDynoMaxDiff.m version 1.2
 
+% CHIPDYNO
 
 nTargets=size(TF,1);
 npts=size(TF,2);

@@ -1,9 +1,6 @@
-
 % DEMTU demonstrates dynamical chipCHIP on Tu data.
-%
-%	Description:
-%	% 	demTu.m version 1.4
 
+% CHIPDYNO
 
 clear all
 [data,vars,X,annotation,TransNames]=chipDynoTuLoadData();

@@ -1,11 +1,8 @@
 function indicator=chipDynoCompareX(X1,probeNames1,TransNames1,X2,probeNames2,TransNames2);
 
 % CHIPDYNOCOMPAREX compares connectivity for different pvals
-%
-%	Description:
-%	indicator=chipDynoCompareX(X1,probeNames1,TransNames1,X2,probeNames2,TransNames2);
-%% 	chipDynoCompareX.m version 1.2
 
+% CHIPDYNO
 
 [row,col]=find(X1);
 indicator=[];

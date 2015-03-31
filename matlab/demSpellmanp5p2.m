@@ -1,9 +1,6 @@
-
 % DEMSPELLMANP5P2 demonstrates dynamical chipCHIP on Spellman data.
-%
-%	Description:
-%	% 	demSpellmanp5p2.m version 1.2
 
+% CHIPDYNO
 clear all
 randn('seed',39)
 [data,X,probeNames,annotation,TransNames]=chipDynoLoadDatap2();

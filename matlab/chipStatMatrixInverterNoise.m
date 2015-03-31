@@ -1,11 +1,8 @@
 function f=chipStatMatrixInverterNoise(Sigma, gamma, beta,precs, x, npts);
 
 % CHIPSTATMATRIXINVERTERNOISE inverts block tridiagonal matrices for chipChip
-%
-%	Description:
-%	f=chipStatMatrixInverterNoise(Sigma, gamma, beta,precs, x, npts);
-%% 	chipStatMatrixInverterNoise.m version 1.4
 
+% CHIPDYNO
 
   lambda=x'*Sigma*x;
 nTrans=size(x,1);

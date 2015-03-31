@@ -1,9 +1,6 @@
-
 % DEMTUNONOISE demonstrates dynamical chipCHIP on Tu data.
-%
-%	Description:
-%	% 	demTuNoNoise.m version 1.2
 
+% CHIPDYNO
 
 clear all
 [data,vars,X,annotation,TransNames]=chipDynoTuLoadData();

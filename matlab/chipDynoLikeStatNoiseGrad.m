@@ -1,24 +1,8 @@
 function f=chipDynoLikeStatNoiseGrad(params,data,precs,X,nEffectGenes,R,C);
 
 % CHIPDYNOLIKESTATNOISEGRAD gradient of CHIPDYNOLIKESTATNOISE.
-% CHIPDYNO toolbox
-% chipDynoLikeStatNoiseGrad.m version 1.4
-% FORMAT f=chipDynoLikeStatNoiseGrad(params,data,precs,X,nEffectGenes,R,C);
-% DESC compute the gradient of chipDynoLikeStatNoise for chipChip dynamical model
-% ARG params: concatenated vector of multiple parameters(beta, gamma, 
-% initial mean of the transcription factors, and 
-% a vector to create diagonal matrix used to reduce the sparsity of covariance)
-% ARG data : point estimate of the expression level
-% ARG precs : uncertainty of the expression level
-% ARG X : connectivity measurement between genes and transcription factors
-% ARG nEffectGenes : effectice gene name
-% ARG R, C : same length integer vectors specifying the row and column 
-% indices of the non-zero entries of the sparce matrix
-% RETURN f : gradient of concatenated parameters (beta,gamma, mu, Sigma, diagonal)
-% COPYRIGHT : Neil D. Lawrence, 2006
-% COPYRIGHT : Guido Sanguinetti, 2006
-% MODIFICATIONS : Muhammad A. Rahman, 2013
-% SEEALSO : chipDynoLikeStatGrad
+
+% CHIPDYNO
 
 nGenes=size(data,1);
 nTrans=size(X,2);

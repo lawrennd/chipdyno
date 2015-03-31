@@ -1,11 +1,8 @@
 function [data,X,annotation,TransNames]=chipDynoLoadData();
 
 % CHIPDYNOLOADDATA loads Spellman Data with Lee et al ChIP data.
-%
-%	Description:
-%	[data,X,annotation,TransNames]=chipDynoLoadData();
-%% 	chipDynoLoadData.m version 1.5
 
+% CHIPDYNO
 
 [probeName, data] = chipTextRead('./data/SpellmanMicro.txt');
 [probeName2, annotation, dataChip] = chipChipTextRead(['./data/' ...

@@ -1,11 +1,8 @@
 function list=chipDynoPerGenes(anno)
 
 % CHIPDYNOPERGENES genes periodic according to Tu et al
-%
-%	Description:
-%	list=chipDynoPerGenes(anno)
-%% 	chipDynoPerGenes.m version 1.4
 
+% CHIPDYNO
 
 TuPerGenes=textread('./data/MetabolData/PerGenes.txt', ...
                      '%q');

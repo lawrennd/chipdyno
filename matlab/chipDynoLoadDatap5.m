@@ -1,11 +1,8 @@
 function [data,X,probeNames,annotation,TransNames]=chipDynoLoadDatap5();
 
 % CHIPDYNOLOADDATAP5 loads Spellman Data with Lee et al ChIP data.
-%
-%	Description:
-%	[data,X,probeNames,annotation,TransNames]=chipDynoLoadDatap5();
-%% 	chipDynoLoadDatap5.m version 1.3
 
+% CHIPDYNO
   
 [probeName, data] = chipTextRead(['./data/' ...
                     'SpellmanMicro.txt']);
