@@ -1,0 +1,34 @@
+
+
+<head>
+<title>Probabilistic Dynamical Model for Inference of the Regulatory Mechanism of Transcription - MATLAB Code</title>
+</head>
+
+<body>n<div class="section">
+
+<h1>Dynamical Model for Transcription</h1>
+
+This page describes examples of how to use the Dynamical Model for Transcription detailed in <a href="http://www.cs.man.ac.uk/neill-bin/publications/bibpage.cgi?keyName=Sanguinetti:chipdyno06&printAbstract=1">this paper</a>. The code is available for <a href="http://www.cs.man.ac.uk/neill-bin/software/downloadForm.cgi?toolbox=chipdyno">download here</a>. 
+
+
+<h3>Release Information</h3>
+
+<p>Current release is 0.11.
+
+<p>Release 0.11 is the second release associated with the paper, containing scripts for recreating the results given.
+
+<p>The toolboxes required to run the code are listed below.</p>
+
+RELEASEINFORMATION
+
+<h4>Version 0.12</h4>
+
+Release version with some files missing (blank files for several demSpellman scripts).
+
+<p>Finally you will also need the <a href="http://www.ncrg.aston.ac.uk/netlab/">NETLAB toolbox</a> in your path.
+
+<h2>Results in the Paper</h2>
+
+The main scripts are <code>demTu</code> and <code>demSpellman</code> which run the code on the metabolic and cell cycle data sets. The function <code>chipdynoTransFact</code> computes the posterior, gene specific, transcription factor activities for a given transcription factor. The function <code>chipdynoTransFactNoise</code> does the same thing for expression levels with associated noise (such as computed by mmgMOS). The function <code>chipdynoGeneAct</code> sorts the transcription factor activities for a particular gene. The function <code>chipdynoTransFactCorrel</code> normalises the correlations and presents the most correlated TFs. Some scripts have been added to recreate the further validatory experiments detailed in the <a href="supplement.pdf">Supplementary material</a>. Specifically,<code>demSpellmanp1</code>, <code>demSpellmanp2</code> and <code>demSpellmanp5</code> run the code on the cell cycle data set with connectivity matrix obtained using different cut-offs at p=0.001, p=0.0002 and p=0.005 respectively. <code>demSpellmanp1p2</code> and <code>demSpellmanp5p2</code> do the same thing but only use the genes and transcription factors active at p=0.0002, so that the systems have the same dimensions. The script <code>chipDynoCompareX</code> can then be used to compare the matrices of effective regulations in the different cases.
+
+</div>n</body>

@@ -1,0 +1,20 @@
+# These are files that should be packaged for the CHIPDYNO software
+dir: html
+~/mlprojects/chipdyno/html/index.html
+~/mlprojects/chipdyno/html/supplement.pdf
+dir: data
+~/mlprojects/chipdyno/matlab/data/annotations2.txt
+~/mlprojects/chipdyno/matlab/data/Connectivity_Matrix.txt
+~/mlprojects/chipdyno/matlab/data/Connectivity2.txt
+~/mlprojects/chipdyno/matlab/data/LeeChIP.txt
+~/mlprojects/chipdyno/matlab/data/SpellmanMicro.txt
+~/mlprojects/chipdyno/matlab/data/Trans_Names.txt
+~/mlprojects/chipdyno/matlab/data/Trans_Names2.txt
+~/mlprojects/chipdyno/matlab/data/Yeast_Connectivity.txt
+dir: data/MetabolData
+~/mlprojects/chipdyno/matlab/data/MetabolData/probeIDTu.txt
+~/mlprojects/chipdyno/matlab/data/MetabolData/dictionary.txt
+~/mlprojects/chipdyno/matlab/data/MetabolData/PerGenes.txt
+~/mlprojects/chipdyno/matlab/data/MetabolData/PerTransFact.txt
+~/mlprojects/chipdyno/matlab/data/MetabolData/YeastMetabolism_exprs.txt
+~/mlprojects/chipdyno/matlab/data/MetabolData/YeastMetabolism_se.txt
