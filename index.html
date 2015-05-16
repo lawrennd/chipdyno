@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>chipdyno by lawrennd</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>chipdyno</h1>
+        <p>Dynamical model for inference of transcription factor activities.</p>
+
+        <p class="view"><a href="https://github.com/lawrennd/chipdyno">View the Project on GitHub <small>lawrennd/chipdyno</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/lawrennd/chipdyno/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/lawrennd/chipdyno/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/lawrennd/chipdyno">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="dynamical-model-for-transcription" class="anchor" href="#dynamical-model-for-transcription" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dynamical Model for Transcription</h1>
+
+<p>This page describes examples of how to use the Dynamical Model for Transcription detailed in <a href="http://ml.sheffield.ac.uk/%7Eneil/cgi-bin/publications/bibpage.cgi?keyName=Sanguinetti:chipdyno06&amp;printAbstract=1">this paper</a>. </p>
+
+<h3>
+<a id="release-information" class="anchor" href="#release-information" aria-hidden="true"><span class="octicon octicon-link"></span></a>Release Information</h3>
+
+<p>Current release is 0.11.</p>
+
+<p>Release 0.11 is the second release associated with the paper, containing scripts for recreating the results given.</p>
+
+<p>The toolboxes required to run the code are listed below.</p>
+
+<h2>
+<a id="release-information-1" class="anchor" href="#release-information-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Release Information</h2>
+
+<p>Current release is 0.121.</p>
+
+<p>As well as downloading the CHIPDYNO software you need to obtain the toolboxes specified below. These can be downloaded using the <em>same</em> password you get from registering for the CHIPDYNO software.</p>
+
+<p>|-------------------------------------------------------------------------------------------|-------------|
+| <strong>Toolbox</strong>                                                                               | <strong>Version</strong> |
+| <a href="http://github.com/lawrennd/ndlutil/">NDLUTIL</a>                                            | 0.159       |
+| <a href="http://www.aston.ac.uk/eas/research/groups/ncrg/resources/netlab/downloads/">NETLAB</a>     | 3.3         |</p>
+
+<h4>
+<a id="version-012" class="anchor" href="#version-012" aria-hidden="true"><span class="octicon octicon-link"></span></a>Version 0.12</h4>
+
+<p>Release version with some files missing (blank files for several demSpellman scripts).</p>
+
+<h2>
+<a id="results-in-the-paper" class="anchor" href="#results-in-the-paper" aria-hidden="true"><span class="octicon octicon-link"></span></a>Results in the Paper</h2>
+
+<p>The main scripts are <code>demTu</code> and <code>demSpellman</code> which run the code on the metabolic and cell cycle data sets. The function <code>chipdynoTransFact</code> computes the posterior, gene specific, transcription factor activities for a given transcription factor. The function <code>chipdynoTransFactNoise</code> does the same thing for expression levels with associated noise (such as computed by mmgMOS). The function <code>chipdynoGeneAct</code> sorts the transcription factor activities for a particular gene. The function <code>chipdynoTransFactCorrel</code> normalises the correlations and presents the most correlated TFs. Some scripts have been added to recreate the further validatory experiments detailed in the <a href="supplement.pdf">Supplementary material</a>. Specifically,<code>demSpellmanp1</code>, <code>demSpellmanp2</code> and <code>demSpellmanp5</code> run the code on the cell cycle data set with connectivity matrix obtained using different cut-offs at p=0.001, p=0.0002 and p=0.005 respectively. <code>demSpellmanp1p2</code> and <code>demSpellmanp5p2</code> do the same thing but only use the genes and transcription factors active at p=0.0002, so that the systems have the same dimensions. The script <code>chipDynoCompareX</code> can then be used to compare the matrices of effective regulations in the different cases.</p>
+
+<p>Page updated on Fri Mar 14 17:11:24 2008</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/lawrennd">lawrennd</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-62968536-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
