@@ -1,7 +1,7 @@
 Dynamical Model for Transcription
 =================================
 
-This page describes examples of how to use the Dynamical Model for Transcription detailed in [this paper]http://ml.sheffield.ac.uk/~neil/cgi-bin/publications/bibpage.cgi?keyName=Sanguinetti:chipdyno06&printAbstract=1). 
+This page describes examples of how to use the Dynamical Model for Transcription detailed in [this paper](http://ml.sheffield.ac.uk/~neil/cgi-bin/publications/bibpage.cgi?keyName=Sanguinetti:chipdyno06&printAbstract=1). 
 
 ### Release Information
 
