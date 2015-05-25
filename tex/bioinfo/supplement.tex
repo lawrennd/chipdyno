@@ -1,0 +1,397 @@
+\documentclass[english]{sheftech}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+%\usepackage{caption}
+%\usepackage{subfig}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{epsfig}
+\usepackage{natbib}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+
+%\usepackage{ae,aecompl}
+
+\usepackage{babel}
+\makeatother
+\begin{document}
+
+\title{Supplementary material to ``A probabilistic dynamical model for 
+quantitative inference of the regulatory mechanism of transcription''}
+\author{Guido Sanguinetti & Magnus Rattray & Neil D. Lawrence}
+
+\maketitle
+In this document we discuss in depth some details of the computational model
+which could not be discussed in the main paper due to space limitations. We 
+also present more results in terms of TFA profiles and lists of active 
+transcription factors.
+
+\section{Dependence of the model on the choice of p-value in the ChIP data}
+
+In the paper we chose to discretize the ChIP data by considering as
+positive only bindings corresponding to a $p$-value smaller than
+$10^{-3}$. This, as far as we are aware, is the standard procedure
+followed by the authors of all other papers applying regression-based
+methods to the problem of integrating microarray and ChIP data, so
+it was an obvious choice in order to compare our results with other
+methods.
+
+The $p$-value cut-off was originally suggested in \cite{Lee02} as
+providing a low level of false positives (estimated at 5\%) and an
+acceptable level of false negatives (the authors estimated that approximately
+a third of all bindings went undetected). It must be borne in mind,
+though, that binding is only a necessary condition for regulation 
+\citep{Martone03}.
+Therefore, the fraction of false positives in the regulatory relationships
+can be expected to be much higher.
+
+To test the robustness of our model upon changes in the cut-off $p$-value,
+we ran our model on the cell-cycle data set with three different connectivity
+matrices: one was obtained by using the customary cut-off at $p=10^{-3}$,
+another was obtained by taking $p=2\times10^{-4}$ and a third by
+taking $p=5\times10^{-3}$. The data sets obtained were very different:
+the most stringent $p$-value led to a smaller network with 1309 genes
+and 88 transcription factors, while at the other end $p=5\times10^{-3}$
+led to a large network with 3130 genes and 112 transcription factors.
+All the results can be obtained by using the MATLAB code available
+for download at http://umber.sbs.man.ac.uk/resources/puma.
+
+We then constructed effective connectivity matrices by retaining only
+regulatory relations that were predicted to be significant (at 95\%
+significance level) by our model. The results of the analysis are
+summarised in Table \ref{pVals}.
+
+Not surprisingly, the fraction of significant regulations (out of
+the possible total) is higher the more stringent the cut-off chosen.
+However, while this fraction is very similar in the two most stringent
+cases (23.0\% and 19.6\% respectively), it is smaller 
+for $p=5\times10^{-3}$ (approximately
+14.0\%). This suggests that the number of false positives at $p=5\times10^{-3}$
+might be too large, forcing the model to explain behaviours that are
+inconsistent and resulting in fewer confident predictions.
+
+Comparing the results between the different experiments, we see that the
+two more stringent $p$-values give similar results, with approximately
+70\% of effective regulatory relations shared between the two predictions. 
+This is somewhat surprising if we consider how different the two networks are. 
+The run using $p=5\times10^{-3}$ gave less consistent results, with
+only approximately 46\% of effective regulatory relations predicted
+both at $p=10^{-3}$ and $p=5\times10^{-3}$. These relations were
+almost all present also in the run using the most stringent $p$-value. 
+These results changed only slightly if we altered the significance
+threshold for the effective connectivity matrix.
+
+This analysis indicates that, consistently with the suggestions of
+\cite{Lee02}, $p=10^{-3}$ provides a good choice of a cut-off to
+discretize ChIP data, as it seems to capture a large enough number
+of regulatory relationships while at the same time keeping the number
+of false positives at a reasonable level. 
+\begin{table}
+\small\center\begin{tabular}{|c|c|c|}
+\hline 
+$p$-value&
+possible links&
+significant links\tabularnewline
+\hline
+
+\hline 
+2$\times10^{-4}$&
+2111&
+486\tabularnewline
+\hline 
+1$\times10^{-3}$&
+3656&
+716\tabularnewline
+\hline
+5$\times10^{-3}$&
+7200&
+1007\tabularnewline
+
+\hline 
+\end{tabular}
+\vspace{0.2cm}
+
+\caption\small{Possible regulations and significant regulations for three different 
+choices of cut-off in the $p$-value for ChIP data \label{pVals}}
+%\vspace{-0.7cm}
+\end{table}
+
+
+
+\section{Global analysis of regulatory networks}
+
+We then considered the global aspects of the inferred regulations
+in both the cell cycle case and metabolic cycle case. To assess
+the significance of a relationship we considered the ratio between the changes
+across time of the gene-specific TFA and the associated standard deviation,
+considering ratios greater than 2 to be significant at 95\% confidence level. 
+The results of this analysis are summed up in Table \ref{global}.
+
+\begin{table}
+\small\center\begin{tabular}{|c|c|c|c|}
+\hline 
+Data set&
+No of genes&
+No of TFs&
+genes with multiple regulators\tabularnewline
+\hline
+
+\hline 
+Cell cycle&
+522&
+47&
+23\%\tabularnewline
+\hline 
+Metabolic cycle&
+2167&
+151&
+11\%\tabularnewline
+
+
+\hline 
+\end{tabular}
+\vspace{0.2cm}
+
+\caption\small{Global properties of the networks of significant regulations 
+for the two data sets studied.\label{global}}
+%\vspace{-0.7cm}
+\end{table}
+In the cell cycle data set (with connectivity obtained using a $p$-value
+of $10^{-3}$), the model inferred 716 significant regulatory relations.
+These were due to 47 transcription factors acting on 522 genes. Out
+of the 47 transcription factors, 27 are confirmed transcription factors
+active during the cell cycle \cite{Luscombe04}. These account for 466
+regulatory relations. Of the 522 genes involved, 119 had
+more than one significant regulator. A list of the transcription factors
+involved, together with the number of genes they significantly regulate
+and a comparison with the data from \cite{Luscombe04} is included
+in the attached spreadsheet CellCycleTF.xls.
+
+In the metabolic cycle data, our model detected 2410 significant regulations
+involving 151 transcription factors and 2167 genes. Notice that in this data set
+the fraction of significant regulations out of the total possible
+is much higher than in the cell cycle at the same level of
+significance (approximately 42\% versus 20\%). This is probably due to the fact
+that, in the metabolic cycle data set, we were able to use the noise
+information extracted at probe level using the mmgMOS algorithm 
+\cite{Liu:mmgmos05}, resulting in a more principled treatment of the noise. 
+In the metabolic
+cycle, 236 genes appear to have multiple significant regulators, 
+five of which were regulated
+by three transcription factors and one by four.
+A list of the transcription factors
+involved and the number of genes each of them regulates is included
+in the attached spreadsheet MetabolCycleTF.xls.
+\section{Further TFAs}
+In the main paper there was only space to show the inferred TFAs only in very few cases (ACE2 
+for the cell cycle data set, LEU3 and ACE2 for the metabolic cycle data set). 
+We show here more gene-specific TFAs and compare them with non-specific 
+profiles obtained from regression. Further examples can be obtained by using
+the online MATLAB code.
+
+Figure \ref{cellCycle} shows the TFAs of four more transcription factors that
+are involved in the cell cycle according to our results. The TFA obtained by regression for these transcription factors is 
+shown in the first column, while the other columns show the gene-specific
+TFAs obtained with our model for the three most significantly regulated
+targets of these transcription factors. Notice that some gene-specific TFAs 
+look quite different from the TFAs obtained by regression. For example, the TFA
+obtained by regression for STE12 seem to be dominated by white noise, while the
+gene specific TFA on the most significant targets shows a very different 
+behaviour, being stationary for the first part of the cycle and peaking 
+towards the end. The gene-specific TFAs of MBP1's three main targets again 
+show different behaviours among them, and in turn different from the regression
+picture. 
+
+Figure \ref{metCycle} shows the TFAs of four more transcription factors that
+significantly regulate five or more genes in the metabolic cycle but do not 
+have periodic expression according to \cite{Tu05}. These are ABF1, ARO80, FHL1 
+and SMP1. The TFA obtained by regression for these transcription factors is 
+shown in the first column, while the other columns show the gene-specific
+TFAs obtained with our model for the three most significantly regulated
+targets of these transcription factors. These results indicate that, even if
+the expression levels of these transcription factors is not periodic, their
+gene-specific activities are to be considered periodic for many genes. 
+We would suggest that the appropriate criterion to determine whether a 
+transcription factor is involved in a periodic cellular process is whether its 
+activities, rather than its expression level, display periodic behaviour.
+\begin{figure}
+\vspace{-1cm}
+%\begin{figure}%\vspace{-1cm}
+\setlength{\unitlength}{0.8cm} \begin{center}
+    \begin{picture}(18,17) \epsfysize = 3cm
+\epsfxsize=3cm
+    \put(-1.8,0){
+\epsfbox{/home/guido/mlprojects/chipChip/tex/figures/SMP1Regression.eps}}
+      \put(1.4,-0.2){\mbox{$t$}}
+    \put(-2.3,3.5){\mbox{\tiny{$TFA$}}}\put(0,-0.5){\mbox{(m)}}
+\epsfxsize=3cm        \epsfysize =3cm \put(2.9,0){
+\epsfbox{/home/guido/mlprojects/chipChip/tex/figures/SMP1SLT2.eps}}
+           \put(2.4 ,3.5){\mbox{\tiny{$TFA$}}}
+        \put(5.9,-0.2){\mbox{$t$}}\put(4.7,-0.5){\mbox{(n)}}
+\epsfxsize=3cm        \epsfysize =3cm \put(7.7,0){
+\epsfbox{/home/guido/mlprojects/chipChip/tex/figures/SMP1GRX5.eps}}
+   \put(7.3 ,3.5){\mbox{\tiny{$TFA$}}}\put(11,-0.2){\mbox{$t$}}
+\put(9.5,-0.5){\mbox{(o)}}
+\epsfxsize=3cm        \epsfysize =3cm \put(12.3,0){
+\epsfbox{/home/guido/mlprojects/chipChip/tex/figures/SMP1HKR1.eps}}
+   \put(11.9 ,3.5){\mbox{\tiny{$TFA$}}}\put(15.8,-0.2){\mbox{$t$}}
+\put(14.2,-0.5){\mbox{(p)}}
+\epsfysize = 3cm
+\epsfxsize=3cm
+    \put(-1.8,4.7){
+\epsfbox{/home/guido/mlprojects/chipChip/tex/figures/FHL1Regression.eps}}
+      \put(1.4,4.5){\mbox{$t$}}
+    \put(-2.3,8.2){\mbox{\tiny{$TFA$}}}\put(0,4.2){\mbox{(i)}}
+\epsfxsize=3cm        \epsfysize =3cm \put(2.9,4.7){
+\epsfbox{/home/guido/mlprojects/chipChip/tex/figures/FHL1RPL9A.eps}}
+           \put(2.4 ,8.2){\mbox{\tiny{$TFA$}}}
+        \put(5.9,4.5){\mbox{$t$}}\put(4.7,4.2){\mbox{(j)}}
+\epsfxsize=3cm        \epsfysize =3cm \put(7.7,4.7){
+\epsfbox{/home/guido/mlprojects/chipChip/tex/figures/FHL1RPL14B.eps}}
+   \put(7.3 ,8.2){\mbox{\tiny{$TFA$}}}
+\put(11,4.5){\mbox{$t$}}\put(9.5,4.2){\mbox{(k)}}
+\epsfxsize=3cm        \epsfysize =3cm \put(12.3,4.7){
+\epsfbox{/home/guido/mlprojects/chipChip/tex/figures/FHL1RPL9B.eps}}
+   \put(11.9 ,8.2){\mbox{\tiny{$TFA$}}}\put(15.8,4.5){\mbox{$t$}}
+\put(14.2,4.2){\mbox{(l)}}
+\epsfysize = 3cm
+\epsfxsize=3cm
+    \put(-1.8,9.4){
+\epsfbox{/home/guido/mlprojects/chipChip/tex/figures/ARO80Regression.eps}}
+      \put(1.4,9.2){\mbox{$t$}}
+    \put(-2.3,12.9){\mbox{\tiny{$TFA$}}}\put(0,8.9){\mbox{(e)}}
+\epsfxsize=3cm        \epsfysize =3cm \put(2.9,9.4){
+\epsfbox{/home/guido/mlprojects/chipChip/tex/figures/ARO80YNL124W.eps}}
+           \put(2.4 ,12.9){\mbox{\tiny{$TFA$}}}
+        \put(5.9,9.2){\mbox{$t$}}\put(4.7,8.9){\mbox{(f)}}
+\epsfxsize=3cm        \epsfysize =3cm \put(7.7,9.4){
+\epsfbox{/home/guido/mlprojects/chipChip/tex/figures/ARO80ARH1.eps}}
+   \put(7.3 ,12.9){\mbox{\tiny{$TFA$}}}
+\put(11,9.2){\mbox{$t$}}\put(9.5,8.9){\mbox{(g)}}
+\epsfxsize=3cm        \epsfysize =3cm \put(12.3,9.4){
+\epsfbox{/home/guido/mlprojects/chipChip/tex/figures/ARO80ARO10.eps}}
+   \put(11.9,12.9){\mbox{\tiny{$TFA$}}}\put(15.8,9.2){\mbox{$t$}}
+\put(14.2,8.9){\mbox{(h)}}
+\epsfysize = 3cm
+\epsfxsize=3cm
+    \put(-1.8,13.9){
+\epsfbox{/home/guido/mlprojects/chipChip/tex/figures/ABF1Regression.eps}}
+      \put(1.4,13.7){\mbox{$t$}}
+    \put(-2.3,17.4){\mbox{\tiny{$TFA$}}}\put(0,13.4){\mbox{(a)}}
+\epsfxsize=3cm        \epsfysize =3cm \put(2.9,13.9){
+\epsfbox{/home/guido/mlprojects/chipChip/tex/figures/ABF1YOR309C.eps}}
+           \put(2.4 ,17.4){\mbox{\tiny{$TFA$}}}
+        \put(5.9,13.7){\mbox{$t$}}\put(4.7,13.4){\mbox{(b)}}
+\epsfxsize=3cm        \epsfysize =3cm \put(7.7,13.9){
+\epsfbox{/home/guido/mlprojects/chipChip/tex/figures/ABF1RFA2.eps}}
+   \put(7.3 ,17.4){\mbox{\tiny{$TFA$}}}
+\put(11,13.7){\mbox{$t$}}\put(9.5,13.4){\mbox{(c)}}
+\epsfxsize=3cm        \epsfysize =3cm \put(12.3,13.9){
+\epsfbox{/home/guido/mlprojects/chipChip/tex/figures/ABF1YPL012W.eps}}
+   \put(11.9 ,17.4){\mbox{\tiny{$TFA$}}}\put(15.8,13.7){\mbox{$t$}}
+\put(14.2,13.4){\mbox{(d)}}
+\end{picture}\end{center}
+\caption{TFAs and gene-specific TFAs for some transcription factors active in
+the yeast metabolic cycle which have non periodic expression levels. (a) TFA 
+of ABF1 obtained by regression. (b-d) TFA of ABF1 for its three main targets,
+YOR309C, RFA2 and YPL012W respectively. (e) TFA of ARO80 obtained by 
+regression. (f-h) TFA of ARO80 for its three main targets, YNL124W, ARH1
+and ARO10 respectively. (i) TFA of FHL1 obtained by regression. (j-l) TFA
+of FHL1 for its three main targets, RPL9A, RPL14B and RPL9B respectively.
+(m) TFA of SMP1 obtained by regression. (n-p) TFA of SMP1 for its three main
+targets, SLT2, GRX5 and HKR1 respectively.}\label{metCycle} 
+\end{figure}
+\begin{figure}
+%\vspace{-1cm}
+%\begin{figure}%\vspace{-1cm}
+\setlength{\unitlength}{0.8cm} \begin{center}
+    \begin{picture}(18,18) \epsfysize = 3cm
+\epsfxsize=3cm
+    \put(-1.8,0){
+\epsfbox{/home/guido/mlprojects/chipChip/tex/figures/NDD1Regression.eps}}
+      \put(1.4,-0.2){\mbox{$t$}}
+    \put(-2.3,3.5){\mbox{\tiny{$TFA$}}}\put(0,-0.5){\mbox{(m)}}
+\epsfxsize=3cm        \epsfysize =3cm \put(2.9,0){
+\epsfbox{/home/guido/mlprojects/chipChip/tex/figures/NDD1PHO3.eps}}
+           \put(2.4 ,3.5){\mbox{\tiny{$TFA$}}}
+        \put(5.9,-0.2){\mbox{$t$}}\put(4.7,-0.5){\mbox{(n)}}
+\epsfxsize=3cm        \epsfysize =3cm \put(7.7,0){
+\epsfbox{/home/guido/mlprojects/chipChip/tex/figures/NDD1YDR033W.eps}}
+   \put(7.3 ,3.5){\mbox{\tiny{$TFA$}}}\put(11,-0.2){\mbox{$t$}}
+\put(9.5,-0.5){\mbox{(o)}}
+\epsfxsize=3cm        \epsfysize =3cm \put(12.7,0){
+\epsfbox{/home/guido/mlprojects/chipChip/tex/figures/NDD1NCE102.eps}}
+   \put(12.3 ,3.5){\mbox{\tiny{$TFA$}}}\put(15.5,-0.2){\mbox{$t$}}
+\put(14.5,-0.5){\mbox{(p)}}
+\epsfysize = 3cm
+\epsfxsize=3cm
+    \put(-1.8,4.7){
+\epsfbox{/home/guido/mlprojects/chipChip/tex/figures/SWI5Regression.eps}}
+      \put(1.4,4.5){\mbox{$t$}}
+    \put(-2.3,8.2){\mbox{\tiny{$TFA$}}}\put(0,4.2){\mbox{(i)}}
+\epsfxsize=3cm        \epsfysize =3cm \put(2.9,4.7){
+\epsfbox{/home/guido/mlprojects/chipChip/tex/figures/SWI5PIR1.eps}}
+           \put(2.4 ,8.2){\mbox{\tiny{$TFA$}}}
+        \put(5.9,4.5){\mbox{$t$}}\put(4.7,4.2){\mbox{(j)}}
+\epsfxsize=3cm        \epsfysize =3cm \put(7.7,4.7){
+\epsfbox{/home/guido/mlprojects/chipChip/tex/figures/SWI5PIR3.eps}}
+   \put(7.3 ,8.2){\mbox{\tiny{$TFA$}}}
+\put(11,4.5){\mbox{$t$}}\put(9.5,4.2){\mbox{(k)}}
+\epsfxsize=3cm        \epsfysize =3cm \put(12.7,4.7){
+\epsfbox{/home/guido/mlprojects/chipChip/tex/figures/SWI5ASH1.eps}}
+   \put(12.3 ,8.2){\mbox{\tiny{$TFA$}}}\put(15.5,4.5){\mbox{$t$}}
+\put(14.5,4.2){\mbox{(l)}}
+\epsfysize = 3cm
+\epsfxsize=3cm
+    \put(-1.8,9.4){
+\epsfbox{/home/guido/mlprojects/chipChip/tex/figures/STE12Regression.eps}}
+      \put(1.4,9.2){\mbox{$t$}}
+    \put(-2.3,12.9){\mbox{\tiny{$TFA$}}}\put(0,8.9){\mbox{(e)}}
+\epsfxsize=3cm        \epsfysize =3cm \put(2.9,9.4){
+\epsfbox{/home/guido/mlprojects/chipChip/tex/figures/STE12FUS1.eps}}
+           \put(2.4 ,12.9){\mbox{\tiny{$TFA$}}}
+        \put(5.9,9.2){\mbox{$t$}}\put(4.7,8.9){\mbox{(f)}}
+\epsfxsize=3cm        \epsfysize =3cm \put(7.7,9.4){
+\epsfbox{/home/guido/mlprojects/chipChip/tex/figures/STE12KAR4.eps}}
+   \put(7.3 ,12.9){\mbox{\tiny{$TFA$}}}
+\put(11,9.2){\mbox{$t$}}\put(9.5,8.9){\mbox{(g)}}
+\epsfxsize=3cm        \epsfysize =3cm \put(12.7,9.4){
+\epsfbox{/home/guido/mlprojects/chipChip/tex/figures/STE12SST2.eps}}
+   \put(12.3 ,12.9){\mbox{\tiny{$TFA$}}}\put(15.5,9.2){\mbox{$t$}}
+\put(14.5,8.9){\mbox{(h)}}
+\epsfysize = 3cm
+\epsfxsize=3cm
+    \put(-1.8,13.9){
+\epsfbox{/home/guido/mlprojects/chipChip/tex/figures/MBP1Regression.eps}}
+      \put(1.4,13.7){\mbox{$t$}}
+    \put(-2.3,17.4){\mbox{\tiny{$TFA$}}}\put(0,13.4){\mbox{(a)}}
+\epsfxsize=3cm        \epsfysize =3cm \put(2.9,13.9){
+\epsfbox{/home/guido/mlprojects/chipChip/tex/figures/MBP1MRP8.eps}}
+           \put(2.4 ,17.4){\mbox{\tiny{$TFA$}}}
+        \put(5.9,13.7){\mbox{$t$}}\put(4.7,13.4){\mbox{(b)}}
+\epsfxsize=3cm        \epsfysize =3cm \put(7.7,13.9){
+\epsfbox{/home/guido/mlprojects/chipChip/tex/figures/MBP1AGA1.eps}}
+   \put(7.3 ,17.4){\mbox{\tiny{$TFA$}}}
+\put(11,13.7){\mbox{$t$}}\put(9.5,13.4){\mbox{(c)}}
+\epsfxsize=3cm        \epsfysize =3cm \put(12.7,13.9){
+\epsfbox{/home/guido/mlprojects/chipChip/tex/figures/MBP1YMR215W.eps}}
+   \put(12.3 ,17.4){\mbox{\tiny{$TFA$}}}\put(15.5,13.7){\mbox{$t$}}
+\put(14.5,13.4){\mbox{(d)}}
+\end{picture}\end{center}
+\caption{TFAs and gene-specific TFAs for some transcription factors active in
+the yeast cell cycle. (a) TFA 
+of NDD1 obtained by regression. (b-d) TFA of NDD1 for its three main targets,
+PHO3, YDR033W and NCE102 respectively. (e) TFA of SWI5 obtained by 
+regression. (f-h) TFA of SWI5 for its three main targets, PIR1, PIR3 
+and ASH1 respectively. (i) TFA of STE12 obtained by regression. (j-l) TFA
+of STE12 for its three main targets, FUS1, KAR4 and SST2 respectively.
+(m) TFA of MBP1 obtained by regression. (n-p) TFA of MBP1 for its three main
+targets, MRP8, AGA1 and YMR215W respectively.}\label{cellCycle} 
+\end{figure}
+\bibliographystyle{plain}
+\bibliography{chip}
+
+\end{document}
